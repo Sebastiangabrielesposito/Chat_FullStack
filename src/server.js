@@ -3,6 +3,7 @@ import { __dirname } from "./utils.js";
 import { Server } from "socket.io";
 import mongoose from "mongoose";
 import Chat from './models/chat.js'
+import { Socket } from "socket.io";
 
 const app = express()
 app.use(express.json())
