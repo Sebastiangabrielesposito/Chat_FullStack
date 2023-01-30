@@ -1,4 +1,5 @@
 // import Chat from '../models/chat.js'
+import $ from 'jquery';
 
 $(function () {
     
