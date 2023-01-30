@@ -3,7 +3,7 @@
 
 $(function () {
     
-const socket = io.connect()
+const socket = io()
     
     //Dom Elements
     const $messageForm = $('#message-form')
