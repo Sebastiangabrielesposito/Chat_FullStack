@@ -1,7 +1,7 @@
 // import Chat from '../models/chat.js'
 // import $ from 'jquery';
 
-const socket = io()
+const socket = io("http://localhost:933")
 
 $(function () {
     
