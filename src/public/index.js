@@ -5,7 +5,7 @@
 
 $(function () {
     
-    const socket = io.connect("http://localhost:933")
+    const socket = io.connect()
     
     //Dom Elements
     const $messageForm = $('#message-form')
