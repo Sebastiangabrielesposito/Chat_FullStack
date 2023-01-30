@@ -1,10 +1,11 @@
 // import Chat from '../models/chat.js'
 // import $ from 'jquery';
 
-const socket = io("http://localhost:933")
+
 
 $(function () {
     
+    const socket = io.connect("http://localhost:933")
     
     //Dom Elements
     const $messageForm = $('#message-form')
