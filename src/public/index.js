@@ -23,21 +23,23 @@ const socketClient = io()
         e.preventDefault()
         // console.log('Enviando...');
         socketClient.emit('new user',$nickname.val(), data => {
-            // console.log(data);
-            if($nickname.val()  === ''){
-                $nickError.html(`
-                    <div class="alert alert-danger">
-                    <p class="alert alert-danger"><b>Error!</b>
-                    enter a user</p>
-                    </div>
-                    `)
-            }else{
+            console.log(data);
+            // if($nickname.val()  === ''){
+            //     $nickError.html(`
+            //         <div class="alert alert-danger">
+            //         <p class="alert alert-danger"><b>Error!</b>
+            //         enter a user</p>
+            //         </div>
+            //         `)
+            // }else{
                 if(data){
                     $('#nickWrap').hide()
                     $('#contentWrap').show()
+                    // document.querySelector("#contentWrap").style.display = "flex";
                     if($('#contentWrap').show()){
                         $('#divNone').show()
                         $divImgInicial.hide()
+                        $("message").focus()
                         // $divImgPosterior.show()
                     }
                 }else{
@@ -47,9 +49,9 @@ const socketClient = io()
                     </div>
                     `)
                 }
-            }
-            $nickname.val('') 
+            // }
         })
+        $nickname.val('') 
     })
 
     //Events
@@ -96,13 +98,13 @@ const socketClient = io()
     })
     
     
-    // socketClient.on('load old msgs', data =>{
-    //     for (let i = 0; i < data.length; i++)
-    //     displayMsg(data[i])
-    // })
-    // const displayMsg = (data) => {
-    //     $chat.append(`<p class="whisper"><b>${data.nick}: </b> ${data.msg}</p> `)
-    // }
+    socketClient.on('load old msgs', data =>{
+        for (let i = 0; i < data.length; i++)
+        displayMsg(data[i])
+    })
+    const displayMsg = (data) => {
+        $chat.append(`<p class="whisper"><b>${data.nick}: </b> ${data.msg}</p> `)
+    }
 
 })
 

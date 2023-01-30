@@ -3,7 +3,6 @@ import { __dirname } from "./utils.js";
 import { Server } from "socket.io";
 import mongoose from "mongoose";
 import Chat from './models/chat.js'
-// const Chat = require('./models/chat')
 
 const app = express()
 app.use(express.json())
@@ -12,9 +11,9 @@ app.use(express.static(__dirname+'/public'))
 
 
 //db connection
-// mongoose.connect('mongodb://localhost/chat-database')
-// .then(db => console.log('db is connected'))
-// .catch(err => console.log(err));
+mongoose.connect('mongodb://localhost/chat-database')
+.then(db => console.log('db is connected'))
+.catch(err => console.log(err));
 
 const puerto = 933
 app.set('port',process.env.PORT || puerto)
@@ -47,8 +46,8 @@ socketServer.on('connection',async(socket)=>{
             socket.nickname = data
             console.log(socket.nickname);
             users[socket.nickname] = socket
-            updateNicknames()
             socket.broadcast.emit('broadcast', socket.nickname)
+            updateNicknames()
         }
     })
     
@@ -60,7 +59,7 @@ socketServer.on('connection',async(socket)=>{
         if(msg.substr(0,3)=== '/w '){
             msg = msg.substr(3)
             //busco en indice del tercer caracter que es un espacio en blanco
-            const index = msg.indexOf(' ')
+            var index = msg.indexOf(' ')
             if(index !== -1){
                 let name = msg.substr(0, index)
                 var msg = msg.substr(index+1)
@@ -81,10 +80,12 @@ socketServer.on('connection',async(socket)=>{
                 nick: socket.nickname
             })
             await newMsg.save()
+            
             socketServer.emit('new message', {
                 msg: data,
                 nick: socket.nickname
             })
+            console.log(msg);
         }
 
     })
