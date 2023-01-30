@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootsrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/25167accfa.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js" integrity="sha512-naukR7I+Nk6gp7p5TMA4ycgfxaZBJ7MO5iC3Fp6ySQyKFHOGfpkSZkYVWV5R7u7cfAicxanwYQ5D1e17EfJcMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/main.css">
+    <title>Chat FullStack</title>
+</head>
+<!-- bg-warning -->
+<body>
+    <nav class="navbar navbar-light" id="navPirate">
+        <a class="navbar-brand mx-auto" id="PirateChat" href="/">PirateCh@t</a>
+    </nav>
+    
+    <div class="card col-md-4 mt-5 mx-auto" id="nickWrap">
+        <div class="card-header">
+            <h3>Enter your Username:</h3>
+        </div>
+        <p id="nickError"></p>
+        <div class="card-body">
+            <form id="nickForm">
+                <input type="text" id="nickname" class="form-control">
+                <button type="submit" class="btn btn-warning mt-2 "><i class="fa-solid fa-location-arrow "></i>Send</button>
+            </form>
+        </div>
+    </div>
+    
+    <div class="container" id="contentWrap">
+        <div class="row mt-2">
+            <div class="col-md-6 offset-md-1 ">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Let's Chat</h4>  
+                    </div>
+                    
+                    <div class="card-body" id="chat"></div>
+                    <form id="message-form" class="card-footer">
+                        <div class="input-group">
+                            <input type="text" id="message" class="form-control">
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-warning"><i class="fa-solid fa-location-arrow"></i>Send</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="col-md-3  ">
+                <div class="card ">
+                    <div class="card-header">
+                        <h3>Users</h3>
+                    </div>
+                    <div class="card-body">
+                        <div id="usernames"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="divImg" id="divImgInicial">
+        <img src="./img/pirata-isla-tesoro.webp" alt=""class="img">
+    </div>
+    
+    <!-- <div class="divNone" id="divNone">
+        <div class="divImg" id="divImgPosterior">
+            <img src="./img/imgpirata.png" alt=""class="img2">
+        </div>
+    </div>
+     -->
+    
+    
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script
+    src="https://code.jquery.com/jquery-3.6.3.min.js"
+    integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+    crossorigin="anonymous"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

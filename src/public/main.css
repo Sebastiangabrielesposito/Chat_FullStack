@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@1,500&family=Inspiration&family=Permanent+Marker&family=Shadows+Into+Light&display=swap');
+
+
+body{
+    background: #536976;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #292E49, #536976);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #292E49, #536976); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+#contentWrap{
+    display: none;
+}
+.error{
+    color: red;
+}
+.whisper{
+    color:grey;
+    font-style: italic;
+}
+nav{
+    display: flex;
+    background: #FDC830;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #F37335, #FDC830);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #F37335, #FDC830); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+    /* background-image: url("./img/pirata-isla-tesoro.webp"); */
+}
+.divImg{
+    display: flex;
+    justify-content: center;
+    margin-top: 65px;
+}
+.img{
+    /* border: 1.8px solid white; */
+    border-radius: 10px;
+    width: 460px;
+    height: 220px;
+    animation-name: borderColor;
+    animation-iteration-count: infinite;
+    animation-duration: 2.5s;
+    animation-delay: 0.2s;
+}
+#PirateChat{
+    font-family: 'Permanent Marker', cursive;
+    font-size: 30px;
+    animation-name: titlePirate;
+    animation-iteration-count: infinite;
+    animation-duration: 3s;
+    /* animation-delay: 0.5s; */
+}
+     
+
+@keyframes titlePirate{
+    0%{color: #326499;}
+    50%{color: #326499;}
+    75%{color: #000;} 
+    100%{color: #000;}
+}
+/* 0%{color: rgb(111, 130, 194);}
+50%{color: #326499;}
+75%{color: rgb(50, 60, 197);} 
+100%{color: rgb(15, 36, 95);}
+} */
+
+@keyframes borderColor{
+    0%{border:2px solid #fff;}
+    50%{border: 2px solid #000}
+    /* 75%{border: 2px solid #fff}  */
+    100%{border:2px solid #FFF}
+}
+.divNone{
+    display: none;
+}
+#divImgPosterior{
+    display: flex;
+    justify-content: center;
+}
+.img2{
+    border-radius: 10px;
+    height: 250px;
+    width: 500px;
+    animation-name: borderColor;
+    animation-iteration-count: infinite;
+    animation-duration: 2.5s;
+}
+.container{
+    margin-top: 50px;
+}

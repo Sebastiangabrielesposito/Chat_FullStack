@@ -1,0 +1,7 @@
+use('prueba')
+
+db.prueb.insertOne({
+    name: 'iph',
+    price:'4000',
+    category: 'smartphone'
+})
