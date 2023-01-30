@@ -1,10 +1,10 @@
 // import Chat from '../models/chat.js'
 // import $ from 'jquery';
-// import { Socket } from "socket.io";
+
+const socket = io()
 
 $(function () {
     
-let socket = io()
     
     //Dom Elements
     const $messageForm = $('#message-form')
