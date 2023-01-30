@@ -2,7 +2,7 @@
 
 $(function () {
     
-const socketClient = io.connect()
+const socket = io.connect()
     
     //Dom Elements
     const $messageForm = $('#message-form')
@@ -22,7 +22,7 @@ const socketClient = io.connect()
     $nickForm.submit((e) =>{
         e.preventDefault()
         // console.log('Enviando...');
-        socketClient.emit('new user',$nickname.val(), data => {
+        socket.emit('new user',$nickname.val(), data => {
             console.log(data);
             // if($nickname.val()  === ''){
             //     $nickError.html(`
@@ -57,18 +57,18 @@ const socketClient = io.connect()
     //Events
     $messageForm.submit((e) =>{
         e.preventDefault()
-        socketClient.emit('send message', $messageBox.val(), data =>{
+        socket.emit('send message', $messageBox.val(), data =>{
             $chat.append(`<p class="error">${data}</p>`)
         })
         $messageBox.val('') 
         
     })
 
-    socketClient.on('new message', (data) =>{
+    socket.on('new message', (data) =>{
         $chat.append(`<b>`+ data.nick + `</b>:` + data.msg + '<br/>' )
     })
 
-    socketClient.on('username',data =>{
+    socket.on('username',data =>{
         console.log(data);
         // if(data ==){
         //     data === false
@@ -82,11 +82,11 @@ const socketClient = io.connect()
         }
     })
 
-    socketClient.on('whisper', data =>{
+    socket.on('whisper', data =>{
         $chat.append(`<p class ="whisper"><b>${data.nick}:</b>${data.msg}</p>`)
     })
 
-    socketClient.on('broadcast',nombreUsuario =>{
+    socket.on('broadcast',nombreUsuario =>{
         // console.log(nombreUsuario);
         Toastify({
             //metodo para que tome el primer caracter, despues pase todo a mayuscula y por ultimo extrae todos dejando solo el primer caracter el  cual queda en mayuscula
@@ -98,7 +98,7 @@ const socketClient = io.connect()
     })
     
     
-    socketClient.on('load old msgs', data =>{
+    socket.on('load old msgs', data =>{
         for (let i = 0; i < data.length; i++)
         displayMsg(data[i])
     })
