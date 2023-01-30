@@ -2,7 +2,7 @@
 
 $(function () {
     
-    const socketClient = io()
+const socketClient = io()
     
     //Dom Elements
     const $messageForm = $('#message-form')
