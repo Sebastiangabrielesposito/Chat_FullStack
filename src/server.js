@@ -70,7 +70,12 @@ socketServer.on('connection',async(socket)=>{
                         nick: socket.nickname
                     })
                 }else {
-                    cb('Error! Please enter a valid User')
+                    const ErrorMessage = `<p class="errorMenssage" id="em">Error! Please enter a valid User</p>`
+                    cb( ErrorMessage)
+                    // cb({
+                    //     error: true,
+                    //     message: "Por favor, ingrese un usuario válido."
+                    //     });
                 } 
             }else{
                cb('Error! Please enter your message') 

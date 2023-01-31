@@ -85,3 +85,9 @@ nav{
 .container{
     margin-top: 50px;
 }
+.errorMenssage{
+    color: red;
+}
+.displayNone{
+    display: none;
+}

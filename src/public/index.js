@@ -61,11 +61,18 @@ $(function () {
     $messageForm.submit((e) =>{
         e.preventDefault()
         socket.emit('send message', $messageBox.val(), data =>{
-            $chat.append(`<p class="error">${data}</p>`)
+            // $chat.append(`<p class="error">${data}</p>`)
         })
         $messageBox.val('') 
         
     })
+
+    // socket.emit('send message', message, (response) => {
+    //     if(response.error) {
+    //     console.error(response.message);
+    //     // muestra un mensaje de error en la UI
+    //     }
+    //     });
 
     socket.on('new message', (data) =>{
         $chat.append(`<b>`+ data.nick + `</b>:` + data.msg + '<br/>' )
