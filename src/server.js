@@ -76,11 +76,11 @@ socketServer.on('connection',async(socket)=>{
                cb('Error! Please enter your message') 
             }
         }else{
-            let newMsg = new Chat({
-                msg,
-                nick: socket.nickname
-            })
-            await newMsg.save()
+            // let newMsg = new Chat({
+            //     msg,
+            //     nick: socket.nickname
+            // })
+            // await newMsg.save()
             
             socketServer.emit('new message', {
                 msg: data,
