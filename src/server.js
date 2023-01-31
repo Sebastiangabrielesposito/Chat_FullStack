@@ -1,8 +1,8 @@
 import express from "express";
 import { __dirname } from "./utils.js";
 import { Server } from "socket.io";
-import mongoose from "mongoose";
-import Chat from './models/chat.js'
+// import mongoose from "mongoose";
+// import Chat from './models/chat.js'
 
 
 const app = express()
@@ -12,9 +12,9 @@ app.use(express.static(__dirname+'/public'))
 
 
 //db connection
-mongoose.connect('mongodb://localhost/chat-database')
-.then(db => console.log('db is connected'))
-.catch(err => console.log(err));
+// mongoose.connect('mongodb://localhost/chat-database')
+// .then(db => console.log('db is connected'))
+// .catch(err => console.log(err));
 
 const puerto = 933
 app.set('port',process.env.PORT || puerto)
