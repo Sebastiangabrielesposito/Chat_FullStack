@@ -35,8 +35,8 @@ socketServer.on('connection',async(socket)=>{
         console.log('Usuario desconectado');
     })
 
-    let messages = await Chat.find({}).limit(3)
-    socket.emit('load old msgs',messages)
+    // let messages = await Chat.find({}).limit(3)
+    // socket.emit('load old msgs',messages)
 
     socket.on('new user',(data,cb)=>{
         // console.log(data);
